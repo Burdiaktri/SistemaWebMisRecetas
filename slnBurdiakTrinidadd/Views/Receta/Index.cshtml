@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Index Receta";
+}
+@model IEnumerable<slnBurdiakTrinidad.Models.Receta>
+
+@Html.ActionLink("Nueva Receta", "Index", "Opera")
+
+
+    @foreach (var item in Model)
+    {
+
+
+    <h4> @Html.DisplayNameFor(model=>model.Nombre):</h4>
+    @Html.ActionLink(Convert.ToString(item.Nombre), "Details", "Receta", new{id=item.Id})
+    <p>@Html.DisplayNameFor(model=>model.Categoria):</p>
+    @Html.DisplayFor(modelItem =>item.Categoria)
+    <p>@Html.DisplayNameFor(model=>model.Ingredientes)</p>
+    @Html.DisplayFor(modelItem =>item.Ingredientes)
+    
+    <p>@Html.DisplayNameFor(model=>model.Instrucciones):</p>
+    @Html.DisplayFor(modelItem =>item.Instrucciones)
+    <p>@Html.DisplayNameFor(model=>model.NombreAutor):</p>
+    @Html.DisplayFor(modelItem =>item.NombreAutor)
+    <p>@Html.DisplayNameFor(model=>model.ApellidoAutor):</p>
+    @Html.DisplayFor(modelItem =>item.ApellidoAutor)
+    <p>@Html.DisplayNameFor(model=>model.EdadAutor):</p>
+    @Html.DisplayFor(modelItem =>item.EdadAutor)
+    <p>@Html.DisplayNameFor(model=>model.EmailAutor):</p>
+    @Html.DisplayFor(modelItem =>item.EmailAutor)
+    
+            
+            
+            
+            
+            
+        
+    }
+
+
+     @section SideBar{
+
+
+    <p>AUTORES POR NOMBRE</p>
+    @foreach (var autores in Model)
+    {
+        <ul>
+            <li>@Html.ActionLink(Convert.ToString(autores.NombreAutor), "GetByNombreAutor", "Receta", new{nombre = autores.NombreAutor})</li>
+        </ul>
+    }
+    <p>AUTORES POR APELLIDO</p>
+    @foreach (var autores in Model)
+    {
+        <ul>
+            <li>@Html.ActionLink(Convert.ToString(autores.ApellidoAutor), "GetByApellidoAutor", "Receta", new{apellido =autores.ApellidoAutor})</li>
+        </ul>
+    }
+
+     }

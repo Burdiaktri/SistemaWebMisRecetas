@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Create Receta";
+}
+@model slnBurdiakTrinidad.Models.Receta
+
+
+    <h2>Ver Detalle</h2>
+@Html.ActionLink("Volver a index", "Index", "Receta")
+
+    <p>
+    @Html.DisplayNameFor(model=>model.Nombre)
+    @Html.DisplayFor(model=>model.Nombre)
+    </p>
+    <p>
+    @Html.DisplayNameFor(model=>model.Categoria)
+    @Html.DisplayFor(model=>model.Categoria)
+    </p>
+    <p>
+    @Html.DisplayNameFor(model=>model.Ingredientes)
+    @Html.DisplayFor(model=>model.Ingredientes)
+    </p>
+<p>
+    @Html.DisplayNameFor(model=>model.Instrucciones)
+    @Html.DisplayFor(model=>model.Instrucciones)
+</p>
