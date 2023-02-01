@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Delete Recetas";
+}
+@model slnBurdiakTrinidad.Models.Receta
+
+<h2>@Model.Nombre</h2>
+<p>Desea eliminar esta receta?</p>
+
+@using (Html.BeginForm("Delete", "Receta", FormMethod.Post))
+{
+    <div>
+        <span>@Html.DisplayNameFor(model=>model.Nombre)</span>
+        <span>@Html.DisplayFor(model=>model.Nombre)</span>
+    </div>
+    <input type="submit" action="Delete" />
+    @Html.ActionLink("Volver", "Index", "Receta")
+}

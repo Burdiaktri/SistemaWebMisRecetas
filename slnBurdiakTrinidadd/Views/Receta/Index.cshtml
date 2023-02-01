@@ -19,7 +19,6 @@
     @foreach (var item in Model)
     {
         <tr>
-
             <td>@Html.ActionLink(Convert.ToString(item.Nombre), "Details", "Receta", new{id=item.Id})</td>
             <td>@Html.DisplayFor(modelItem =>item.Categoria)</td>
             <td>@Html.DisplayFor(modelItem =>item.Ingredientes)</td>
@@ -28,6 +27,10 @@
             <td>@Html.DisplayFor(modelItem =>item.ApellidoAutor)</td>
             <td>@Html.DisplayFor(modelItem =>item.EdadAutor)</td>
             <td>@Html.DisplayFor(modelItem =>item.EmailAutor)</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", "Receta",new{id=item.Id})
+                @Html.ActionLink("Eliminar", "Delete", "Receta", new {id=item.Id})
+            </td>
         </tr>
     }
 </table>
