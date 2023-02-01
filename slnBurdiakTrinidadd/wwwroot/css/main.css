@@ -61,3 +61,6 @@ img {
     max-height: 80%;
     object-fit: fill
 }
+.detalles {
+    display: flex;
+}

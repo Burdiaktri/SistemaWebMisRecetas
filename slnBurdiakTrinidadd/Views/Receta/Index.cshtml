@@ -4,37 +4,33 @@
 @model IEnumerable<slnBurdiakTrinidad.Models.Receta>
 
 @Html.ActionLink("Nueva Receta", "Index", "Opera")
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model=>model.Nombre)</th>
+        <th>@Html.DisplayNameFor(model=>model.Categoria)</th>
+        <th>@Html.DisplayNameFor(model=>model.Ingredientes)</th>
+        <th>@Html.DisplayNameFor(model=>model.Instrucciones)</th>
+        <th>@Html.DisplayNameFor(model=>model.NombreAutor)</th>
+        <th>@Html.DisplayNameFor(model=>model.ApellidoAutor)</th>
+        <th>@Html.DisplayNameFor(model=>model.EdadAutor)</th>
+        <th>@Html.DisplayNameFor(model=>model.EmailAutor)</th>
 
-
+    </tr>
     @foreach (var item in Model)
     {
+        <tr>
 
-
-    <h4> @Html.DisplayNameFor(model=>model.Nombre):</h4>
-    @Html.ActionLink(Convert.ToString(item.Nombre), "Details", "Receta", new{id=item.Id})
-    <p>@Html.DisplayNameFor(model=>model.Categoria):</p>
-    @Html.DisplayFor(modelItem =>item.Categoria)
-    <p>@Html.DisplayNameFor(model=>model.Ingredientes)</p>
-    @Html.DisplayFor(modelItem =>item.Ingredientes)
-    <p>@Html.DisplayNameFor(model=>model.Instrucciones):</p>
-    @Html.DisplayFor(modelItem =>item.Instrucciones)
-    <p>@Html.DisplayNameFor(model=>model.NombreAutor):</p>
-    @Html.DisplayFor(modelItem =>item.NombreAutor)
-    <p>@Html.DisplayNameFor(model=>model.ApellidoAutor):</p>
-    @Html.DisplayFor(modelItem =>item.ApellidoAutor)
-    <p>@Html.DisplayNameFor(model=>model.EdadAutor):</p>
-    @Html.DisplayFor(modelItem =>item.EdadAutor)
-    <p>@Html.DisplayNameFor(model=>model.EmailAutor):</p>
-    @Html.DisplayFor(modelItem =>item.EmailAutor)
-    
-            
-            
-            
-            
-            
-        
+            <td>@Html.ActionLink(Convert.ToString(item.Nombre), "Details", "Receta", new{id=item.Id})</td>
+            <td>@Html.DisplayFor(modelItem =>item.Categoria)</td>
+            <td>@Html.DisplayFor(modelItem =>item.Ingredientes)</td>
+            <td>@Html.DisplayFor(modelItem =>item.Instrucciones)</td>
+            <td>@Html.DisplayFor(modelItem =>item.NombreAutor)</td>
+            <td>@Html.DisplayFor(modelItem =>item.ApellidoAutor)</td>
+            <td>@Html.DisplayFor(modelItem =>item.EdadAutor)</td>
+            <td>@Html.DisplayFor(modelItem =>item.EmailAutor)</td>
+        </tr>
     }
-
+</table>
 
      @section SideBar{
 
@@ -50,7 +46,7 @@
     @foreach (var autores in Model)
     {
         <ul>
-            <li>@Html.ActionLink(Convert.ToString(autores.ApellidoAutor), "GetByApellidoAutor", "Receta", new{apellido =autores.ApellidoAutor})</li>
+            <li>@Html.ActionLink(Convert.ToString(autores.ApellidoAutor), "GetByApellidoAutor", "Receta", new{apellido=autores.ApellidoAutor})</li>
         </ul>
     }
 
